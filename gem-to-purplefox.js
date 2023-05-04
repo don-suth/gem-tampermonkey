@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         GEM PurpleFox Extract
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.0.1
 // @description  Extract information about the current GEM round, and format it for PurpleFox.
 // @author       Dan Collins <dcollins@batwing.tech>
 // @author       Aurélie Violette
 // @website      https://github.com/dcollinsn/gem-tampermonkey
+// @downloadURL  https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-to-purplefox.js
 // @match        https://gem.fabtcg.com/gem/*/run/*/report/
 // @icon         https://eor-us.purple-fox.fr/favicon.ico
 // @grant        GM_registerMenuCommand
