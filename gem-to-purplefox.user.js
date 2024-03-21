@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GEM PurpleFox Extract
 // @namespace    http://tampermonkey.net/
-// @version      1.0.2
+// @version      1.1.0
 // @description  Extract information about the current GEM round, and format it for PurpleFox.
 // @author       Dan Collins <dcollins@batwing.tech>
 // @author       Aurélie Violette
@@ -19,8 +19,8 @@ function extractResult() {
     const result = [];
     document.querySelectorAll(".match-row").forEach((row) => {
         const cells = row.querySelectorAll(".match-element");
-        const [,playerName1 = null, playerGameId1 = null] = cells[1].innerHTML.match(PLAYER_REGEXP) || []
-        const [,playerName2 = null, playerGameId2 = null] = cells[2].innerHTML.match(PLAYER_REGEXP) || []
+        const [,playerName1 = null, playerGameId1 = null] = cells[1].children[0].innerHTML.match(PLAYER_REGEXP) || []
+        const [,playerName2 = null, playerGameId2 = null] = cells[2].children[0].innerHTML.match(PLAYER_REGEXP) || []
         result.push({
             tableNumber: parseInt(cells[0].innerHTML),
             playerName1,
