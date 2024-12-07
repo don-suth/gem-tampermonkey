@@ -6,8 +6,8 @@
 // @author       Dan Collins <dcollins@batwing.tech>
 // @author       Aurélie Violette
 // @website      https://github.com/dcollinsn/gem-tampermonkey
-// @updateURL    https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-to-purplefox.js
-// @downloadURL  https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-to-purplefox.js
+// @updateURL    https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-to-purplefox.user.js
+// @downloadURL  https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-to-purplefox.user.js
 // @match        https://gem.fabtcg.com/gem/*/run/*/report/
 // @icon         https://eor-us.purple-fox.fr/favicon.ico
 // @grant        GM_registerMenuCommand
