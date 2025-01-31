@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GEM PurpleFox Extract
 // @namespace    http://tampermonkey.net/
-// @version      1.1.1
+// @version      1.2.0
 // @description  Extract information about the current GEM round, and format it for PurpleFox.
 // @author       Dan Collins <dcollins@batwing.tech>
 // @author       Aurélie Violette
@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 function extractResult() {
-    const PLAYER_REGEXP = /^(.+) \((.+)\)$/
+    const PLAYER_REGEXP = /^\s+(.+) \((\d+)\)/
     const result = [];
     document.querySelectorAll(".match-row").forEach((row) => {
         const cells = row.querySelectorAll(".match-element");
