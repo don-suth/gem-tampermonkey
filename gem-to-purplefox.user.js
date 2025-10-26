@@ -5,8 +5,8 @@
 // @description  Extract information about the current GEM round, and format it for PurpleFox.
 // @author       Donald Sutherland
 // @website      https://github.com/don-suth/gem-tampermonkey
-// @updateURL    https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-to-purplefox.user.js
-// @downloadURL  https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-to-purplefox.user.js
+// @updateURL    https://raw.githubusercontent.com/don-suth/gem-tampermonkey/main/gem-to-purplefox.user.js
+// @downloadURL  https://raw.githubusercontent.com/don-suth/gem-tampermonkey/main/gem-to-purplefox.user.js
 // @match        https://gem.fabtcg.com/gem/*/run/*/report/
 // @icon         https://eor-us.purple-fox.fr/favicon.ico
 // @grant        GM_registerMenuCommand
