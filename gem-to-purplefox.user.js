@@ -43,25 +43,6 @@ function showToast(message) {
     }, 2000);
 }
 
-function createButton() {
-    const testButton = document.createElement("button");
-    testButton.classList.add("fab-btn");
-
-    testButton.textContent = "PurpleFox Export";
-    testButton.innerHTML = '<i class="fa fa-clipboard"></i> PurpleFox Export';
-    testButton.title = "title";
-    Object.assign(testButton.style, {
-        position: 'fixed',
-        top: '60px',
-        right: '60px',
-        fontSize: '22px',
-    });
-    testButton.style.setProperty("--btn-bg", "#5c0099");
-    testButton.style.setProperty("--btn-bg-hover", "#a31aff");
-    testButton.onclick = function(){showToast("✓ Copied to clipboard!")};
-    document.getElementById("content").firstElementChild.prepend(testButton);
-}
-
 function extractResult() {
     const PLAYER_REGEXP = /^\s+(.+) \((\d+)\)/
     const result = [];
@@ -81,12 +62,38 @@ function extractResult() {
     return result;
 }
 
-function doMenuCommand(event) {
+function setClipboardToResults() {
     const result = extractResult();
     GM_setClipboard(JSON.stringify(result));
+    showToast("✓ Copied to clipboard!");
+}
+
+
+function doMenuCommand(event) {
+    setClipboardToResults();
+}
+
+function createButton() {
+    const testButton = document.createElement("button");
+    testButton.classList.add("fab-btn");
+
+    testButton.textContent = "PurpleFox Export";
+    testButton.innerHTML = '<i class="fa fa-clipboard"></i> PurpleFox Export';
+    testButton.title = "title";
+    Object.assign(testButton.style, {
+        position: 'fixed',
+        top: '60px',
+        right: '60px',
+        fontSize: '22px',
+    });
+    testButton.style.setProperty("--btn-bg", "#5c0099");
+    testButton.style.setProperty("--btn-bg-hover", "#a31aff");
+    testButton.onclick = setClipboardToResults;
+    document.getElementById("content").firstElementChild.prepend(testButton);
 }
 
 (function() {
     'use strict';
+    createButton();
     const menu_command_id = GM_registerMenuCommand("PurpleFox Export", doMenuCommand, "e");
 })();
