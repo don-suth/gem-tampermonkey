@@ -28,7 +28,6 @@ function createToast() {
         "boxShadow": '0 4px 12px rgba(0,0,0,0.2)',
         "zIndex": '9999',
         "opacity": '0',
-        "transition": 'opacity 0.3s ease-in-out',
         "text-align": "center",
         "text-shadow": "black 1px 1px 3px",
     });
@@ -65,6 +64,7 @@ function createToast() {
     toast.appendChild(line4);
 
     document.body.appendChild(toast);
+    return toast
 }
 
 function displayToast(line1, line2, line3, line4) {
@@ -72,10 +72,8 @@ function displayToast(line1, line2, line3, line4) {
     document.getElementById("purpleFoxExporterToastLine2").textContent = line2;
     document.getElementById("purpleFoxExporterToastLine3").textContent = line3;
     document.getElementById("purpleFoxExporterToastLine4").textContent = line4;
-    const toast = document.getElementById("purpleFoxExporterToast")
-    requestAnimationFrame(() => {
-        toast.style.opacity = '1';
-    });
+    const toast = document.getElementById("purpleFoxExporterToast");
+    toast.style.opacity = '1';
     setTimeout(() => {
         toast.style.opacity = '0';
     }, 4000);
@@ -127,7 +125,7 @@ function displayToast(line1, line2, line3, line4) {
     // Do the equivalent of selecting all text, and copying it to the clipboard for PurpleFox
     const purpleFoxExport = document.body.innerText;
     GM_setClipboard(purpleFoxExport);
-    createToast();
+    const toast = createToast();
     const eventData = document.title.split(" | Print ");
     displayToast(
         "Pairings",
@@ -135,4 +133,5 @@ function displayToast(line1, line2, line3, line4) {
         eventData[1],
         "✓ have been copied to clipboard",
     );
+    window.addEventListener("beforeprint", () => { toast.style.opacity = "0"});
 })();
