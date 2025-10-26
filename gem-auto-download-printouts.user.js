@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         GEM Auto-Download Printouts
 // @namespace    http://tampermonkey.net/
-// @version      1.0.0
+// @version      2025-10-26
 // @description  Automatically downloads the raw HTML of the GEM pairings printout pages.
-// @author       Dan Collins <dcollins@batwing.tech>
-// @updateURL    https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-auto-download-printouts.user.js
-// @downloadURL  https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-auto-download-printouts.user.js
-// @website      https://github.com/dcollinsn/gem-tampermonkey
+// @author       Donald Sutherland
+// @website      https://github.com/don-suth/gem-tampermonkey
+// @updateURL    https://raw.githubusercontent.com/don-suth/gem-tampermonkey/main/gem-auto-download-printouts.user.js
+// @downloadURL  https://raw.githubusercontent.com/don-suth/gem-tampermonkey/main/gem-auto-download-printouts.user.js
 // @match        https://gem.fabtcg.com/gem/*/run/*/print/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=fabtcg.com
 // @grant        GM_setClipboard
