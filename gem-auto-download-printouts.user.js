@@ -9,8 +9,78 @@
 // @website      https://github.com/dcollinsn/gem-tampermonkey
 // @match        https://gem.fabtcg.com/gem/*/run/*/print/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=fabtcg.com
-// @grant        none
+// @grant        GM_setClipboard
 // ==/UserScript==
+
+function createToast() {
+    const toast = document.createElement("div");
+    toast.id = "purpleFoxExporterToast";
+    Object.assign(toast.style, {
+        "position": 'fixed',
+        "top": '30px',
+        "left": '50%',
+        "transform": 'translateX(-50%)',
+        "background": '#2a952e',
+        "color": '#fff',
+        "padding": '10px 20px',
+        "fontSize": '32px',
+        "borderRadius": '6px',
+        "boxShadow": '0 4px 12px rgba(0,0,0,0.2)',
+        "zIndex": '9999',
+        "opacity": '0',
+        "transition": 'opacity 0.3s ease-in-out',
+        "text-align": "center",
+        "text-shadow": "black 1px 1px 3px",
+    });
+    toast.onclick = () => { toast.style.opacity = "0" };
+
+    const line1 = document.createElement("span");
+    line1.id = "purpleFoxExporterToastLine1";
+    Object.assign(line1.style, {
+        "display": "block",
+        "fontSize": "24px",
+    });
+    toast.appendChild(line1);
+
+    const line2 = document.createElement("span");
+    line2.id = "purpleFoxExporterToastLine2";
+    Object.assign(line2.style, {
+        "display": "block",
+    });
+    toast.appendChild(line2);
+
+    const line3 = document.createElement("span");
+    line3.id = "purpleFoxExporterToastLine3";
+    Object.assign(line3.style, {
+        "display": "block",
+    });
+    toast.appendChild(line3);
+
+    const line4 = document.createElement("span");
+    line4.id = "purpleFoxExporterToastLine4";
+    Object.assign(line4.style, {
+        "display": "block",
+        "fontSize": "20px",
+    });
+    toast.appendChild(line4);
+
+    document.body.appendChild(toast);
+}
+
+function displayToast(line1, line2, line3, line4) {
+    document.getElementById("purpleFoxExporterToastLine1").innerHTML = "<u>" + line1 + "</u> for";
+    document.getElementById("purpleFoxExporterToastLine2").textContent = line2;
+    document.getElementById("purpleFoxExporterToastLine3").textContent = line3;
+    document.getElementById("purpleFoxExporterToastLine4").textContent = line4;
+    const toast = document.getElementById("purpleFoxExporterToast")
+    requestAnimationFrame(() => {
+        toast.style.opacity = '1';
+    });
+    setTimeout(() => {
+        toast.style.opacity = '0';
+    }, 4000);
+}
+
 
 (function() {
     'use strict';
@@ -53,4 +123,16 @@
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+
+    // Do the equivalent of selecting all text, and copying it to the clipboard for PurpleFox
+    const purpleFoxExport = document.body.innerText;
+    GM_setClipboard(purpleFoxExport);
+    createToast();
+    const eventData = document.title.split(" | Print ");
+    displayToast(
+        "Pairings",
+        eventData[0],
+        eventData[1],
+        "✓ have been copied to clipboard",
+    );
 })();
