@@ -39,7 +39,7 @@ function createToast() {
     line1.id = "purpleFoxExporterToastLine1";
     Object.assign(line1.style, {
         "display": "block",
-        "fontSize": "20px",
+        "fontSize": "24px",
     });
     toast.appendChild(line1);
 
@@ -69,7 +69,7 @@ function createToast() {
 }
 
 function displayToast(line1, line2, line3, line4) {
-    document.getElementById("purpleFoxExporterToastLine1").textContent = line1;
+    document.getElementById("purpleFoxExporterToastLine1").innerHTML = "<u>" + line1 + "</u> for";
     document.getElementById("purpleFoxExporterToastLine2").textContent = line2;
     document.getElementById("purpleFoxExporterToastLine3").textContent = line3;
     document.getElementById("purpleFoxExporterToastLine4").textContent = line4;
@@ -108,10 +108,10 @@ function setClipboardToResults() {
     const eventNameHeading = mainContent.querySelector("h1");
     const roundHeading = eventNameHeading.nextElementSibling;
     displayToast(
-        "✓ Copied ✓",
+        "Results",
         eventNameHeading.firstChild.textContent,
         roundHeading.textContent.trim(),
-        "to clipboard",
+        "✓ have been copied to clipboard",
         );
 }
 
