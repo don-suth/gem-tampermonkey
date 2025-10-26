@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name         GEM PurpleFox Extract
 // @namespace    http://tampermonkey.net/
-// @version      1.2.0
+// @version      2025-10-26
 // @description  Extract information about the current GEM round, and format it for PurpleFox.
-// @author       Dan Collins <dcollins@batwing.tech>
-// @author       Aurélie Violette
-// @website      https://github.com/dcollinsn/gem-tampermonkey
+// @author       Donald Sutherland
+// @website      https://github.com/don-suth/gem-tampermonkey
 // @updateURL    https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-to-purplefox.user.js
 // @downloadURL  https://raw.githubusercontent.com/dcollinsn/gem-tampermonkey/main/gem-to-purplefox.user.js
 // @match        https://gem.fabtcg.com/gem/*/run/*/report/
